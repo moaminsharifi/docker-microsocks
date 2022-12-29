@@ -1,5 +1,5 @@
 # Docker container for MicroSocks
-[![Docker Automated build](https://img.shields.io/docker/automated/shawly/microsocks.svg)](https://hub.docker.com/r/shawly/microsocks/) [![Docker Image](https://images.microbadger.com/badges/image/shawly/microsocks.svg)](http://microbadger.com/#/images/shawly/microsocks) [![Build Status](https://travis-ci.org/shawly/docker-microsocks.svg?branch=master)](https://travis-ci.org/shawly/docker-microsocks) [![GitHub Release](https://img.shields.io/github/release/shawly/docker-microsocks.svg)](https://github.com/shawly/docker-microsocks/releases/latest)
+[![Docker Automated build](https://img.shields.io/docker/automated/aminsharifi/microsocks.svg)](https://hub.docker.com/r/aminsharifi/microsocks/) [![Docker Image](https://images.microbadger.com/badges/image/aminsharifi/microsocks.svg)](http://microbadger.com/#/images/aminsharifi/microsocks) [![Build Status](https://travis-ci.org/shawly/docker-microsocks.svg?branch=master)](https://travis-ci.org/shawly/docker-microsocks) [![GitHub Release](https://img.shields.io/github/release/shawly/docker-microsocks.svg)](https://github.com/shawly/docker-microsocks/releases/latest)
 
 This is a Docker container for MicroSocks, a multithreaded, small, efficient SOCKS5 server.
 
@@ -33,7 +33,7 @@ Launch the microsocks docker container with the following command:
 docker run -d \
     --name=microsocks \
     -p 1080:1080 \
-    shawly/microsocks
+    aminsharifi/microsocks
 ```
 
 ## Usage
@@ -43,7 +43,7 @@ docker run [-d] \
     --name=microsocks \
     [-e <VARIABLE_NAME>=<VALUE>]... \
     [-p <HOST_PORT>:<CONTAINER_PORT>]... \
-    shawly/microsocks
+    aminsharifi/microsocks
 ```
 | Parameter | Description |
 |-----------|-------------|
@@ -104,7 +104,7 @@ ports are part of the example.
 version: '3'
 services:
   microsocks:
-    image: shawly/microsocks
+    image: aminsharifi/microsocks
     restart: unless-stopped
     environment:
       - TZ: Europe/Berlin
@@ -119,7 +119,7 @@ the Docker image, the following steps can be followed:
 
   1. Fetch the latest image:
 ```
-docker pull shawly/microsocks
+docker pull aminsharifi/microsocks
 ```
   2. Stop the container:
 ```

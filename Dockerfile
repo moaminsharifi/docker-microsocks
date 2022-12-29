@@ -9,8 +9,8 @@ ARG ALPINE_VERSION=3.17.0
 
 # Set vars for s6 overlay
 ARG S6_OVERLAY_VERSION=v3.1.2.1
-ARG S6_OVERLAY_ARCH=amd64
-ARG S6_OVERLAY_RELEASE=https://github.com/just-containers/s6-overlay/releases/download/${S6_OVERLAY_VERSION}/s6-overlay-${S6_OVERLAY_ARCH}.tar.gz
+ARG S6_OVERLAY_ARCH=x86_64
+ARG S6_OVERLAY_RELEASE=https://github.com/just-containers/s6-overlay/releases/download/${S6_OVERLAY_VERSION}/s6-overlay-${S6_OVERLAY_ARCH}.tar.xz
 
 # Set microsocks vars
 ARG MICROSOCKS_REPO=https://github.com/rofl0r/microsocks
@@ -56,7 +56,7 @@ ARG S6_OVERLAY_RELEASE
 ENV S6_OVERLAY_RELEASE=${S6_OVERLAY_RELEASE}
 
 # Download S6 Overlay
-ADD ${S6_OVERLAY_RELEASE} /tmp/s6overlay.tar.gz
+ADD ${S6_OVERLAY_RELEASE} /tmp/s6overlay.tar.xz
 
 # Copy binary from build container.
 COPY --from=builder /tmp/microsocks-bin/microsocks /usr/local/bin/microsocks
@@ -70,7 +70,7 @@ RUN \
     tzdata \
     curl && \
   echo "Extracting s6 overlay..." && \
-    tar xzf /tmp/s6overlay.tar.gz -C / && \
+    tar xf /tmp/s6overlay.tar.xz -C / && \
   echo "Creating microsocks user..." && \
     useradd -u 1000 -U -M -s /bin/false microsocks && \
     usermod -G users microsocks && \
