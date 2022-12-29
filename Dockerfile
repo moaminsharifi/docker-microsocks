@@ -1,20 +1,20 @@
 #
 # microsocks Dockerfile
 #
-# https://github.com/shawly/docker-microsocks
+# https://github.com/moaminsharifi/docker-microsocks
 #
 
 # Set alpine version
-ARG ALPINE_VERSION=3.11
+ARG ALPINE_VERSION=3.17.0
 
 # Set vars for s6 overlay
-ARG S6_OVERLAY_VERSION=v1.22.1.0
+ARG S6_OVERLAY_VERSION=v3.1.2.1
 ARG S6_OVERLAY_ARCH=amd64
 ARG S6_OVERLAY_RELEASE=https://github.com/just-containers/s6-overlay/releases/download/${S6_OVERLAY_VERSION}/s6-overlay-${S6_OVERLAY_ARCH}.tar.gz
 
 # Set microsocks vars
 ARG MICROSOCKS_REPO=https://github.com/rofl0r/microsocks
-ARG MICROSOCKS_BRANCH=v1.0.1
+ARG MICROSOCKS_BRANCH=v1.0.3
 ARG MICROSOCKS_URL=${MICROSOCKS_REPO}/archive/${MICROSOCKS_BRANCH}.tar.gz
 
 # Build microsocks
@@ -94,7 +94,7 @@ LABEL \
       org.label-schema.name="MicroSocks" \
       org.label-schema.description="Docker container for MicroSocks" \
       org.label-schema.version="1.0.1" \
-      org.label-schema.vcs-url="https://github.com/shawly/docker-microsocks" \
+      org.label-schema.vcs-url="https://github.com/moaminsharifi/docker-microsocks" \
       org.label-schema.schema-version="1.0"
 
 # Start s6.
